@@ -1,0 +1,12 @@
+# DXRichEdit for Silverlight: How to register custom fonts
+
+
+<p>By default, the list of available fonts for the RichEditControl is limited. It contains local Silverlight fonts and some most recent fonts that are preloaded by the internal RichEdit code. If necessary, you can extend this list. Please follow these steps to accomplish this task:</p><p>1) Right click on your Silverlight application project folder in the Solution Explorer, choose "Add->New Item...".<br />
+2) Browse to your font, select it (only *.TTF font format is supported) and click the OK button.<br />
+3) Select the font, in the property grid set the" Build Action" = "Embedded Resource".<br />
+3) Now, in the code behind, in order to register the font, load it via the <strong>Assembly.GetManifestResourceStream()</strong> method and call the <strong>FontManager.RegisterFontFamily()</strong> method. Pass the loaded stream and exact font name to this method. To get the exact name of the font just double click on the font in the solution explorer to open the built-in MS Windows font viewer.<br />
+4) In addition, you can programmatically force this font to be a default RichEditControl font. Please use the approach from the <a href="https://www.devexpress.com/Support/Center/p/E2757">Default font and paragraph formatting - an example of use</a> example for this purpose.</p>
+
+<br/>
+
+
