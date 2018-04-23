@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="RichEditCustomFontsSL.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit"
+    mc:Ignorable="d" d:DesignHeight="500" d:DesignWidth="700" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <dxre:RichEditUICommand x:Key="commands" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <dxb:BarManager Name="barManager1" ToolbarGlyphSize="Small">
+            <dxb:BarManager.Bars>
+                <dxb:Bar x:Name="barFont" Caption="Font">
+                    <dxb:Bar.DockInfo>
+                        <dxb:BarDockInfo ContainerType="Top" />
+                    </dxb:Bar.DockInfo>
+                    <dxb:Bar.ItemLinks>
+                        <dxb:BarEditItemLink BarItemName="biFormatFontName" />
+                        <dxb:BarEditItemLink BarItemName="biFormatFontSize" />
+                        <dxb:BarButtonItemLink BarItemName="biFormatIncreaseFontSize" />
+                        <dxb:BarButtonItemLink BarItemName="biFormatDecreaseFontSize" />
+                        <dxb:BarButtonItemLink BarItemName="biFormatClearFormatting" />
+                        <dxb:BarCheckItemLink BarItemName="biFormatFontBold" />
+                        <dxb:BarCheckItemLink BarItemName="biFormatFontItalic" />
+                        <dxb:BarCheckItemLink BarItemName="biFormatFontUnderline" />
+                        <dxb:BarCheckItemLink BarItemName="biFormatFontDoubleUnderline" />
+                        <dxb:BarCheckItemLink BarItemName="biFormatFontStrikeout" />
+                        <dxb:BarCheckItemLink BarItemName="biFormatFontDoubleStrikeout" />
+                        <dxb:BarCheckItemLink BarItemName="biFormatFontSuperscript" />
+                        <dxb:BarCheckItemLink BarItemName="biFormatFontSubscript" />
+                        <dxb:BarSubItemLink BarItemName="biEditChangeCase" />
+                        <dxre:BarSplitButtonColorEditItemLink BarItemName="biFormatFontBackColor" />
+                        <dxre:BarSplitButtonColorEditItemLink BarItemName="biFormatFontForeColor" />
+                        <dxb:BarButtonItemLink BarItemName="biFormatFont" />
+                    </dxb:Bar.ItemLinks>
+                </dxb:Bar>
+            </dxb:BarManager.Bars>
+            <dxb:BarManager.Items>
+                <dxb:BarEditItem Command="{Binding Path=FormatFontName, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Content="" EditWidth="150" Name="biFormatFontName">
+                    <dxb:BarEditItem.EditSettings>
+                        <dxre:FontComboBoxEditSettings />
+                    </dxb:BarEditItem.EditSettings>
+                </dxb:BarEditItem>
+                <dxb:BarEditItem Command="{Binding Path=FormatFontSize, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Content="" EditWidth="50" Name="biFormatFontSize">
+                    <dxb:BarEditItem.EditSettings>
+                        <dxre:RichEditFontSizeComboBoxEditSettings RichEditControl="{Binding ElementName=richEditControl1}" />
+                    </dxb:BarEditItem.EditSettings>
+                </dxb:BarEditItem>
+                <dxb:BarButtonItem Command="{Binding Path=FormatIncreaseFontSize, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatIncreaseFontSize" />
+                <dxb:BarButtonItem Command="{Binding Path=FormatDecreaseFontSize, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatDecreaseFontSize" />
+                <dxb:BarButtonItem Command="{Binding Path=FormatClearFormatting, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatClearFormatting" />
+                <dxb:BarCheckItem Command="{Binding Path=FormatFontBold, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatFontBold" />
+                <dxb:BarCheckItem Command="{Binding Path=FormatFontItalic, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatFontItalic" />
+                <dxb:BarCheckItem Command="{Binding Path=FormatFontUnderline, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatFontUnderline" />
+                <dxb:BarCheckItem Command="{Binding Path=FormatFontDoubleUnderline, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatFontDoubleUnderline" />
+                <dxb:BarCheckItem Command="{Binding Path=FormatFontStrikeout, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatFontStrikeout" />
+                <dxb:BarCheckItem Command="{Binding Path=FormatFontDoubleStrikeout, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatFontDoubleStrikeout" />
+                <dxb:BarCheckItem Command="{Binding Path=FormatFontSuperscript, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatFontSuperscript" />
+                <dxb:BarCheckItem Command="{Binding Path=FormatFontSubscript, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatFontSubscript" />
+                <dxb:BarSubItem Command="{Binding Path=EditChangeCase, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biEditChangeCase">
+                    <dxb:BarSubItem.ItemLinks>
+                        <dxb:BarButtonItemLink BarItemName="biEditMakeUpperCase" />
+                        <dxb:BarButtonItemLink BarItemName="biEditMakeLowerCase" />
+                        <dxb:BarButtonItemLink BarItemName="biEditToggleCase" />
+                    </dxb:BarSubItem.ItemLinks>
+                </dxb:BarSubItem>
+                <dxb:BarButtonItem Command="{Binding Path=EditMakeUpperCase, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biEditMakeUpperCase" />
+                <dxb:BarButtonItem Command="{Binding Path=EditMakeLowerCase, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biEditMakeLowerCase" />
+                <dxb:BarButtonItem Command="{Binding Path=EditToggleCase, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biEditToggleCase" />
+                <dxre:BarSplitButtonColorEditItem Command="{Binding Path=FormatFontBackColor, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatFontBackColor">
+                    <dxre:BarSplitButtonColorEditItem.PopupControl>
+                        <dxb:PopupControlContainerInfo>
+                            <dx:ThemedUserControl>
+                                <dxe:ColorEdit EditValue="{Binding ElementName=biFormatFontBackColor, Mode=TwoWay, Path=EditValue}" />
+                            </dx:ThemedUserControl>
+                        </dxb:PopupControlContainerInfo>
+                    </dxre:BarSplitButtonColorEditItem.PopupControl>
+                </dxre:BarSplitButtonColorEditItem>
+                <dxre:BarSplitButtonColorEditItem Command="{Binding Path=FormatFontForeColor, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatFontForeColor">
+                    <dxre:BarSplitButtonColorEditItem.PopupControl>
+                        <dxb:PopupControlContainerInfo>
+                            <dx:ThemedUserControl>
+                                <dxe:ColorEdit EditValue="{Binding ElementName=biFormatFontForeColor, Mode=TwoWay, Path=EditValue}" />
+                            </dx:ThemedUserControl>
+                        </dxb:PopupControlContainerInfo>
+                    </dxre:BarSplitButtonColorEditItem.PopupControl>
+                </dxre:BarSplitButtonColorEditItem>
+                <dxb:BarButtonItem Command="{Binding Path=FormatFont, Mode=OneTime, Source={StaticResource commands}}" CommandParameter="{Binding ElementName=richEditControl1}" Name="biFormatFont" />
+            </dxb:BarManager.Items>
+            
+            <dxre:RichEditControl Name="richEditControl1" BarManager="{Binding ElementName=barManager1, Mode=OneTime}"
+                                  Text="Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat." />
+        </dxb:BarManager>
+    </Grid>
+</UserControl>
